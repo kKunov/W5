@@ -100,14 +100,15 @@ def main():
     conn = sqlite3.connect("company.db")
     make_sql(conn)
     print_commands()
-    command = ask_for_command()
-    while check_command(command) is False:
-        print("Wrong command! Try again!")
+    command = ""
+    while command != "exit":
         command = ask_for_command()
-    what_to_do(command, conn)
+        while check_command(command) is False:
+            print("Wrong command! Try again!")
+            command = ask_for_command()
+        what_to_do(command, conn)
     conn.commit()
 
 
 if __name__ == '__main__':
     main()
-
