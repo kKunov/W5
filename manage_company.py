@@ -33,7 +33,7 @@ def list_employees(conn):
     list_of_emplo = conn.execute('''SELECT id, name, position
                                     FROM employee''')
     for raw in list_of_emplo:
-        print("%s - %s - %s" % (raw[0], raw[1], raw[2]))
+        print("{0} - {1} - {2}".format(raw[0], raw[1], raw[2]))
 
 
 def delete_employee(conn, i_d):
